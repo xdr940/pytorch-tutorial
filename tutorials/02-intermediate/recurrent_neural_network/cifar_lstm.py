@@ -7,23 +7,24 @@ import torchvision.transforms as transforms
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Hyper-parameters
-sequence_length = 28
-input_size = 28
+sequence_length = 32 #本来处理序列的， lenth是序列长度， 这里处理图片的时候就成了w、h了
+input_size = 32
+channels = 3
 
-hidden_size = 64
+hidden_size = 128
 num_layers = 3
 num_classes = 10
 batch_size = 100
-num_epochs = 2
+num_epochs = 20
 learning_rate = 0.01
 
 # MNIST dataset
-train_dataset = torchvision.datasets.MNIST(root='/home/roit/datasets/mnist/',
+train_dataset = torchvision.datasets.CIFAR10(root='/home/roit/datasets/cifar/',
                                            train=True,
                                            transform=transforms.ToTensor(),
                                            download=True)
 
-test_dataset = torchvision.datasets.MNIST(root='/home/roit/datasets/mnist/',
+test_dataset = torchvision.datasets.CIFAR10(root='/home/roit/datasets/cifar/',
                                           train=False,
                                           transform=transforms.ToTensor())
 
@@ -69,7 +70,8 @@ optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 total_step = len(train_loader)
 for epoch in range(num_epochs):
     for i, (images, labels) in enumerate(train_loader):  # image [B,1,28,28]
-        images = images.reshape(-1, sequence_length, input_size).to(device)  # [b,28,28]
+       # images = images.reshape(-1, sequence_length, input_size).to(device)  # [b,28,28]
+        images = images[:,0,:,:].reshape(batch_size,sequence_length,input_size).to(device)
         labels = labels.to(device)
 
         # Forward pass
@@ -90,7 +92,8 @@ with torch.no_grad():
     correct = 0
     total = 0
     for images, labels in test_loader:
-        images = images.reshape(-1, sequence_length, input_size).to(device)
+        #images = images.reshape(-1, sequence_length, input_size).to(device)
+        images = images[:, 0, :, :].reshape(batch_size, sequence_length, input_size).to(device)
         labels = labels.to(device)
         outputs = model(images)
         _, predicted = torch.max(outputs.data, 1)
