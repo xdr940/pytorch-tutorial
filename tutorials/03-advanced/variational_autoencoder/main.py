@@ -24,7 +24,7 @@ batch_size = 128
 learning_rate = 1e-3
 
 # MNIST dataset
-dataset = torchvision.datasets.MNIST(root='../../data',
+dataset = torchvision.datasets.MNIST(root='/home/roit/datasets/mnist/',
                                      train=True,
                                      transform=transforms.ToTensor(),
                                      download=True)
@@ -42,20 +42,24 @@ class VAE(nn.Module):
         self.fc1 = nn.Linear(image_size, h_dim)
         self.fc2 = nn.Linear(h_dim, z_dim)
         self.fc3 = nn.Linear(h_dim, z_dim)
+
         self.fc4 = nn.Linear(z_dim, h_dim)
         self.fc5 = nn.Linear(h_dim, image_size)
         
     def encode(self, x):
         h = F.relu(self.fc1(x))
-        return self.fc2(h), self.fc3(h)
+        ret1 = self.fc2(h)
+        ret2 = self.fc3(h)
+        return ret1, ret2
     
-    def reparameterize(self, mu, log_var):
+    def reparameterize(self, mu, log_var):#添加gauss噪声
         std = torch.exp(log_var/2)
         eps = torch.randn_like(std)
         return mu + eps * std
 
-    def decode(self, z):
-        h = F.relu(self.fc4(z))
+    def decode(self, x):
+        z=self.fc4(x)
+        h = F.relu(z)
         return F.sigmoid(self.fc5(h))
     
     def forward(self, x):
@@ -66,6 +70,7 @@ class VAE(nn.Module):
 
 model = VAE().to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+
 
 # Start training
 for epoch in range(num_epochs):
@@ -78,17 +83,20 @@ for epoch in range(num_epochs):
         # For KL divergence, see Appendix B in VAE paper or http://yunjey47.tistory.com/43
         reconst_loss = F.binary_cross_entropy(x_reconst, x, size_average=False)
         kl_div = - 0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp())
-        
-        # Backprop and optimize
         loss = reconst_loss + kl_div
+		
+		# Backprop and optimize
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
         
         if (i+1) % 10 == 0:
             print ("Epoch[{}/{}], Step [{}/{}], Reconst Loss: {:.4f}, KL Div: {:.4f}" 
-                   .format(epoch+1, num_epochs, i+1, len(data_loader), reconst_loss.item(), kl_div.item()))
-    
+                   .format(epoch+1, num_epochs,
+                           i+1, len(data_loader),
+                           reconst_loss.item(), kl_div.item()))#对0阶张量item()遍历
+
+    #test
     with torch.no_grad():
         # Save the sampled images
         z = torch.randn(batch_size, z_dim).to(device)

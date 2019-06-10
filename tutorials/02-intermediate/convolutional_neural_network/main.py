@@ -2,33 +2,35 @@ import torch
 import torch.nn as nn
 import torchvision
 import torchvision.transforms as transforms
-
-
+from dataloader import DataLoader
+from torchvision.datasets import MNIST#construction function
+from mnist import MNIST
 # Device configuration
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
 # Hyper parameters
-num_epochs = 5
+num_epochs = 2
 num_classes = 10
 batch_size = 100
 learning_rate = 0.001
 
 # MNIST dataset
-train_dataset = torchvision.datasets.MNIST(root='../../data/',
-                                           train=True, 
+train_dataset = MNIST(root='/home/roit/datasets/mnist/',#要有raw and processed data
+                                           train=True,
                                            transform=transforms.ToTensor(),
                                            download=True)
 
-test_dataset = torchvision.datasets.MNIST(root='../../data/',
+test_dataset = MNIST(root='/home/roit/datasets/mnist/',
                                           train=False, 
                                           transform=transforms.ToTensor())
 
+print(train_dataset)
 # Data loader
-train_loader = torch.utils.data.DataLoader(dataset=train_dataset,
+train_loader = DataLoader(dataset=train_dataset,num_workers=4,
                                            batch_size=batch_size, 
                                            shuffle=True)
 
-test_loader = torch.utils.data.DataLoader(dataset=test_dataset,
+test_loader = DataLoader(dataset=test_dataset,
                                           batch_size=batch_size, 
                                           shuffle=False)
 
