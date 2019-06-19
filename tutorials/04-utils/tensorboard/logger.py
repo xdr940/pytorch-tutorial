@@ -1,7 +1,9 @@
 # Code referenced from https://gist.github.com/gyglim/1f8dfb1b5c82627ae3efcfbbadb9f514
 import tensorflow as tf
 import numpy as np
-import scipy.misc 
+import scipy.misc
+from tensorboardX import SummaryWriter
+
 try:
     from StringIO import StringIO  # Python 2.7
 except ImportError:

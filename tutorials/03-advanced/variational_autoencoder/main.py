@@ -5,6 +5,7 @@ import torch.nn.functional as F
 import torchvision
 from torchvision import transforms
 from torchvision.utils import save_image
+from tqdm import tqdm
 
 
 # Device configuration
@@ -31,7 +32,8 @@ dataset = torchvision.datasets.MNIST(root='/home/roit/datasets/mnist/',
 
 # Data loader
 data_loader = torch.utils.data.DataLoader(dataset=dataset,
-                                          batch_size=batch_size, 
+                                          batch_size=batch_size,
+                                          num_workers=8,
                                           shuffle=True)
 
 
@@ -71,39 +73,59 @@ class VAE(nn.Module):
 model = VAE().to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
+def training():
+    # Start training
+    for epoch in range(num_epochs):
+        for i, (x, _) in enumerate(data_loader):
+            # Forward pass
+            x = x.to(device).view(-1, image_size)#拉长784
+            x_reconst, mu, log_var = model(x)
 
-# Start training
-for epoch in range(num_epochs):
-    for i, (x, _) in enumerate(data_loader):
-        # Forward pass
-        x = x.to(device).view(-1, image_size)
-        x_reconst, mu, log_var = model(x)
-        
-        # Compute reconstruction loss and kl divergence
-        # For KL divergence, see Appendix B in VAE paper or http://yunjey47.tistory.com/43
-        reconst_loss = F.binary_cross_entropy(x_reconst, x, size_average=False)
-        kl_div = - 0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp())
-        loss = reconst_loss + kl_div
-		
-		# Backprop and optimize
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
-        
-        if (i+1) % 10 == 0:
-            print ("Epoch[{}/{}], Step [{}/{}], Reconst Loss: {:.4f}, KL Div: {:.4f}" 
-                   .format(epoch+1, num_epochs,
-                           i+1, len(data_loader),
-                           reconst_loss.item(), kl_div.item()))#对0阶张量item()遍历
+            # Compute reconstruction loss and kl divergence
+            # For KL divergence, see Appendix B in VAE paper or http://yunjey47.tistory.com/43
+            reconst_loss = F.binary_cross_entropy(x_reconst, x, size_average=False)
+            kl_div = - 0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp())
+            loss = reconst_loss + kl_div
 
-    #test
+            # Backprop and optimize
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+
+            if (i+1) % 10 == 0:
+                print ("Epoch[{}/{}], Step [{}/{}], Reconst Loss: {:.4f}, KL Div: {:.4f}"
+                       .format(epoch+1, num_epochs,
+                               i+1, len(data_loader),
+                               reconst_loss.item(), kl_div.item()))#对0阶张量item()遍历
+
+        #save
+        with torch.no_grad():
+            # Save the sampled images
+            z = torch.randn(batch_size, z_dim).to(device)
+            out = model.decode(z).view(-1, 1, 28, 28)
+            save_image(out, os.path.join(sample_dir, 'sampled-{}.png'.format(epoch+1)))
+
+            # Save the reconstructed images
+            out, _, _ = model(x)
+            x_concat = torch.cat([x.view(-1, 1, 28, 28), out.view(-1, 1, 28, 28)], dim=3)
+            save_image(x_concat, os.path.join(sample_dir, 'reconst-{}.png'.format(epoch+1)))
+
+def save_model():
     with torch.no_grad():
-        # Save the sampled images
-        z = torch.randn(batch_size, z_dim).to(device)
-        out = model.decode(z).view(-1, 1, 28, 28)
-        save_image(out, os.path.join(sample_dir, 'sampled-{}.png'.format(epoch+1)))
+        torch.save(model.state_dict(),'./state_dict.pth')
+        torch.save(model,'./model.pth')
 
-        # Save the reconstructed images
-        out, _, _ = model(x)
-        x_concat = torch.cat([x.view(-1, 1, 28, 28), out.view(-1, 1, 28, 28)], dim=3)
-        save_image(x_concat, os.path.join(sample_dir, 'reconst-{}.png'.format(epoch+1)))
+def load_model():
+
+    model2 = torch.load('./model.pth')
+    model = VAE()
+    state = torch.load('./state_dict.pth')
+    model.load_state_dict(state)
+    print('ok')
+
+
+if __name__=='__main__':
+    #training()
+    #
+    load_model()
+
