@@ -12,8 +12,6 @@ import os
 from tensorboardX import SummaryWriter
 
 
-
-
 parser = argparse.ArgumentParser(description='Structure from Motion Learner training on KITTI and CityScapes Dataset',
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument('--dataset', default='mnist', type=str)
@@ -63,6 +61,23 @@ val_loader = torch.utils.data.DataLoader(dataset=val_dataset,
                                           shuffle=False)
 #training_writer = SummaryWriter(args.log_save_path)  # for tensorboard
 
+
+
+# Fully connected neural network with one hidden layer
+class NeuralNet(nn.Module):
+    def __init__(self, input_size=784, hidden_size=500, num_classes=10):
+        super(NeuralNet, self).__init__()
+        self.fc1 = nn.Linear(input_size, hidden_size) 
+        self.relu = nn.ReLU()
+        self.fc2 = nn.Linear(hidden_size, num_classes)  
+    
+    def forward(self, x):
+        out = self.fc1(x)
+        out = self.relu(out)
+        out = self.fc2(out)
+        return out
+
+
 #对于一个长度为n1， 均值为avg1的数列， 添加长度为n2，均值为avg2的数列后，整个数列的n和avg
 #epoch步和batch步很有效果
 class AverageMeter(object):
@@ -95,25 +110,11 @@ class AverageMeter(object):
         return '{} ({})'.format(val, avg)
 
 
-# Fully connected neural network with one hidden layer
-class NeuralNet(nn.Module):
-    def __init__(self, input_size=784, hidden_size=500, num_classes=10):
-        super(NeuralNet, self).__init__()
-        self.fc1 = nn.Linear(input_size, hidden_size) 
-        self.relu = nn.ReLU()
-        self.fc2 = nn.Linear(hidden_size, num_classes)  
-    
-    def forward(self, x):
-        out = self.fc1(x)
-        out = self.relu(out)
-        out = self.fc2(out)
-        return out
 
 model = NeuralNet().to(device)
 
 n_iter = 0#一共做了多少次forward pass, 作为batch-record data的横坐标
 n_iter_val=0
-logger = Logger('./logs')#self defined class
 
 # Loss and optimizer
 criterion = nn.CrossEntropyLoss()
@@ -154,23 +155,13 @@ def train(args,train_loader,model,epoch,train_writer):
         if (batch_idx + 1) % args.print_freq == 0:#print freq
             print('Step [{}/{}], train_batch_Loss: {:.4f}, train_batch_Acc: {:.2f}'
                   .format(batch_idx + 1, len(train_loader), loss, accuracy))
-        #if (batch_idx + 1) % args.log_freq == 0:  # print freq
 
-        # ================================================================== #
-        #                        Tensorboard Logging                         #
-        # ================================================================== #
 
-        # 1. Log scalar values (scalar summary)
-        info = {'batch_data/batch_loss': loss.item(), 'batch_data/batch_accuracy': accuracy.item()}
 
-        for tag, value in info.items():
-            train_writer.add_scalar(tag,value,n_iter+1)
-        # 2. Log values and gradients of the parameters (histogram summary)
+        train_writer.add_scalar('batch_data/batch_loss',loss.item(),n_iter+1)
+        train_writer.add_scalar('batch_data/batch_acc',accuracy.item(),n_iter+1)
 
-        #info = {'images': images.view(-1, 28, 28)[:10].cpu().numpy()}
 
-        #for tag, images in info.items():
-          #  training_writer.add_image(tag, images, n_iter + 1)
 
 
         n_iter+=1
@@ -178,7 +169,7 @@ def train(args,train_loader,model,epoch,train_writer):
     return epoch_losses.avg[0],epoch_acc.avg[0]# list
 
 #@torch.no_grad()
-def validate(args, val_loader, model, epoch, test_writer):
+def validate(args, val_loader, model, epoch, output_writers):
     val_epoch_losses = AverageMeter(precision=4)
     val_epoch_acc = AverageMeter(precision = 4)
     global n_iter_val
@@ -194,10 +185,7 @@ def validate(args, val_loader, model, epoch, test_writer):
 
         loss = criterion(outputs, labels)
 
-        # Backward and optimize
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
+        # NO Backward and optimize!!
 
         # Compute accuracy
         _, argmax = torch.max(outputs, 1)
@@ -206,27 +194,9 @@ def validate(args, val_loader, model, epoch, test_writer):
 
 
 
+        for i in range(3):
+            output_writers[i].add_image('inputs_img',images[0].reshape(1,28,28).cpu(),i)
 
-        if (batch_idx + 1) % args.print_freq == 0:#print freq
-            print('Step [{}/{}], val_batch_Loss: {:.4f}, val_batch_Acc: {:.2f}'
-                  .format(batch_idx + 1, len(val_loader), loss, accuracy))
-        #if (batch_idx + 1) % args.log_freq == 0:  # print freq
-
-        # ================================================================== #
-        #                        Tensorboard Logging                         #
-        # ================================================================== #
-
-        # 1. Log scalar values (scalar summary)
-        info = {'batch_loss': loss.item(), 'batch_accuracy': accuracy.item()}
-
-        for tag, value in info.items():
-            test_writer.add_scalar(tag,value,n_iter_val+1)
-        # 2. Log values and gradients of the parameters (histogram summary)
-
-        #info = {'images': images.view(-1, 28, 28)[:10].cpu().numpy()}
-
-        #for tag, images in info.items():
-          #  training_writer.add_image(tag, images, n_iter + 1)
         n_iter_val+=1
 
 
@@ -261,7 +231,7 @@ def main():
 
     test_writer = SummaryWriter(os.path.join(save_path, 'test'))  #
 
-    output_writers = []
+    output_writers = []#for validate
     for i in range(3):  # for test img nums
         output_writers.append(SummaryWriter(os.path.join(save_path, 'test', str(i))))
 
@@ -272,10 +242,11 @@ def main():
     for epoch in range(args.epochs):
         train_loss,train_acc = train(args,train_loader,model,epoch,train_writer)
         with torch.no_grad():
-            val_loss,val_acc = validate(args,train_loader,model,epoch,test_writer)
+            val_loss,val_acc = validate(args,train_loader,model,epoch,output_writers)
         #epoch-record data log
         train_writer.add_scalar(tag = 'epoch_data/epoch_loss',scalar_value= train_loss,global_step=epoch)
         train_writer.add_scalar(tag = 'epoch_data/epoch_acc',scalar_value= train_acc,global_step=epoch)
+
         test_writer.add_scalar(tag = 'epoch_data/epoch_loss',scalar_value= val_loss,global_step=epoch)
         test_writer.add_scalar(tag = 'epoch_data/epoch_acc',scalar_value= val_acc,global_step=epoch)
         '''
@@ -288,9 +259,13 @@ def main():
 
 
 
-        #print
-        print('epoch [{}/{}], avg_loss: {:.4f}, avg_acc: {:.2f}'
-              .format(epoch + 1, args.epochs, train_loss, train_acc))
+        #print epoch
+        print('epoch [{}/{}]\n'
+              'train: avg_loss: {:.4f}, avg_acc: {:.2f}'
+              '\nvalidate: avg_loss: {:.4f},avg_acc:{:.2f}'
+              .format(epoch + 1,args.epochs,
+                      train_loss, train_acc,
+                      val_loss, val_acc))
 
         #model save
         torch.save(model,'model.pth.rar')
@@ -311,10 +286,6 @@ def main():
     return 0
 
 
-def save_checkpoint2(save_path,net_state,is_best,filename='checkpoint.pth.tar'):
-    torch.save(net_state,save_path+'/{}_{}'.format(net_state,filename))
-    if is_best:
-        shutil.copyfile(save_path+'/{}_{}'.format(net_state,filename),save_path/'{}_model_best.pth.tar'.format(net_state))
 
 
 if __name__ =="__main__":
