@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torchvision
 from torchvision import transforms
-from logger import Logger
+#from logger import Logger
 
 # Device configuration
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
