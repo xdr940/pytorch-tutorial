@@ -65,34 +65,29 @@ val_loader = torch.utils.data.DataLoader(dataset=val_dataset,
 
 #对于一个长度为n1， 均值为avg1的数列， 添加长度为n2，均值为avg2的数列后，整个数列的n和avg
 #epoch步和batch步很有效果
+
 class AverageMeter(object):
     """Computes and stores the average and current value"""
 
-    def __init__(self, i=1, precision=3):
-        self.meters = i
-        self.precision = precision
-        self.reset(self.meters)
+    def __init__(self):
+        self.reset()
 
-    def reset(self, i):
-        self.val = [0]*i
-        self.avg = [0]*i
-        self.sum = [0]*i
+    def reset(self):
+        self.val = 0
+        self.avg = 0
+        self.sum = 0
         self.count = 0
 
     def update(self, val, n=1):
-        if not isinstance(val, list):
-            val = [val]
-        assert(len(val) == self.meters)
+        self.val = val
+        self.sum += val * n
         self.count += n
-        for i,v in enumerate(val):
-            self.val[i] = v
-            self.sum[i] += v * n
-            self.avg[i] = self.sum[i] / self.count
+        self.avg = self.sum / self.count
 
     def __repr__(self):
-        val = ' '.join(['{:.{}f}'.format(v, self.precision) for v in self.val])
-        avg = ' '.join(['{:.{}f}'.format(a, self.precision) for a in self.avg])
-        return '{} ({})'.format(val, avg)
+        return '{:.3f} ({:.3f})'.format(self.val, self.avg)
+
+
 
 
 # Fully connected neural network with one hidden layer
@@ -175,7 +170,7 @@ def train(args,train_loader,model,epoch,train_writer):
 
         n_iter+=1
 
-    return epoch_losses.avg[0],epoch_acc.avg[0]# list
+    return epoch_losses.avg,epoch_acc.avg# list
 
 #@torch.no_grad()
 def validate(args, val_loader, model, epoch, test_writer):
@@ -235,7 +230,7 @@ def validate(args, val_loader, model, epoch, test_writer):
         val_epoch_acc.update(accuracy.item(), args.batch_size)
 
 
-    return val_epoch_losses.avg[0],val_epoch_acc.avg[0]# list
+    return val_epoch_losses.avg,val_epoch_acc.avg# list
 
 
 
