@@ -2,36 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d9750f6-8209-4be6-b090-66e07d65ed57" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/tutorial_pt.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/.idea/tutorials.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/02-intermediate/.idea/02-intermediate.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/02-intermediate/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/02-intermediate/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/02-intermediate/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/02-intermediate/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/02-intermediate/convolutional_neural_network/.idea/convolutional_neural_network.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/02-intermediate/convolutional_neural_network/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/02-intermediate/convolutional_neural_network/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/02-intermediate/convolutional_neural_network/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/02-intermediate/convolutional_neural_network/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/02-intermediate/model_dict_test/convnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorials/04-utils/model_dict_test/convnet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/02-intermediate/model_dict_test/dict_load_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorials/04-utils/model_dict_test/dict_load_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/02-intermediate/model_dict_test/iutils.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorials/04-utils/model_dict_test/iutils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tutorial_pt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tutorial_pt.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorials/03-advanced/VAE" beforeDir="false" afterPath="$PROJECT_DIR$/tutorials/03-advanced/VAE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tutorials/03-advanced/VAE/simple_autoencoder.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tutorials/03-advanced/VAE/vae.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tutorials/03-advanced/VAE/var_encoder_img/image_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/tutorials/03-advanced/VAE/var_encoder_img/image_0.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tutorials/03-advanced/VAE/var_encoder_img/image_10.png" beforeDir="false" afterPath="$PROJECT_DIR$/tutorials/03-advanced/VAE/var_encoder_img/image_10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/04-utils/tensorboard/main2.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorials/04-utils/tensorboard/main2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/04-utils/tensorboardX/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorials/04-utils/tensorboardX/model.pth.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorials/03-advanced/generative_adversarial_network/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorials/03-advanced/generative_adversarial_network/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,41 +19,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutorials/04-utils/tensorboardX/demo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1955">
-              <caret line="137" column="14" selection-start-line="137" selection-start-column="14" selection-end-line="137" selection-end-column="14" />
-              <folding>
-                <element signature="e#11#23#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutorials/04-utils/tensorboard/main2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="503">
-              <caret line="78" column="66" selection-start-line="78" selection-start-column="66" selection-end-line="78" selection-end-column="66" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutorials/02-intermediate/convolutional_neural_network/convnet.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tutorials/03-advanced/generative_adversarial_network/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="410">
+              <caret line="32" column="66" selection-start-line="32" selection-start-column="66" selection-end-line="32" selection-end-column="66" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tutorials/02-intermediate/convolutional_neural_network/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+            <state relative-caret-position="374">
+              <caret line="26" column="74" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="74" />
               <folding>
+                <element signature="e#0#12#0" expanded="true" />
                 <element signature="e#1440#1979#0" />
                 <element signature="e#1681#1888#0" />
                 <element signature="e#2037#2723#0" />
@@ -84,32 +46,6 @@
                 <element signature="e#2764#3393#0" />
                 <element signature="e#2898#3377#0" />
                 <element signature="e#2983#3250#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutorials/04-utils/tensorboard/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3699">
-              <caret line="89" selection-start-line="89" selection-end-line="89" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutorials/04-utils/tensorboardX/demo2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-              <folding>
-                <element signature="e#115#1083#0" />
-                <element signature="e#143#804#0" />
-                <element signature="e#860#1083#0" />
               </folding>
             </state>
           </provider>
@@ -158,6 +94,7 @@
         <option value="$PROJECT_DIR$/tutorials/04-utils/tensorboard/main.py" />
         <option value="$PROJECT_DIR$/tutorials/04-utils/tensorboardX/main.py" />
         <option value="$PROJECT_DIR$/tutorials/04-utils/tensorboard/main2.py" />
+        <option value="$PROJECT_DIR$/tutorials/03-advanced/generative_adversarial_network/main.py" />
       </list>
     </option>
   </component>
@@ -193,6 +130,30 @@
               <item name="tutorial_pt" type="b2602c69:ProjectViewProjectNode" />
               <item name="tutorial_pt" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="tutorial_pt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorial_pt" type="462c0819:PsiDirectoryNode" />
+              <item name="tutorials" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorial_pt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorial_pt" type="462c0819:PsiDirectoryNode" />
+              <item name="tutorials" type="462c0819:PsiDirectoryNode" />
+              <item name="02-intermediate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorial_pt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorial_pt" type="462c0819:PsiDirectoryNode" />
+              <item name="tutorials" type="462c0819:PsiDirectoryNode" />
+              <item name="02-intermediate" type="462c0819:PsiDirectoryNode" />
+              <item name="convolutional_neural_network" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tutorial_pt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tutorial_pt" type="462c0819:PsiDirectoryNode" />
+              <item name="tutorials" type="462c0819:PsiDirectoryNode" />
+              <item name="03-advanced" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -223,28 +184,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main (2)">
-    <configuration name="demo2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="tutorial_pt" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tutorials/04-utils/tensorboardX" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tutorials/04-utils/tensorboardX/demo2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.main (3)">
     <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="tutorial_pt" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -279,6 +219,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tutorials/02-intermediate/convolutional_neural_network/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main (3)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="tutorial_pt" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tutorials/03-advanced/generative_adversarial_network" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tutorials/03-advanced/generative_adversarial_network/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -331,11 +292,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main (3)" />
         <item itemvalue="Python.main (2)" />
         <item itemvalue="Python.main2" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.main (1)" />
-        <item itemvalue="Python.demo2" />
       </list>
     </recent_temporary>
   </component>
@@ -354,14 +315,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24972677" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32937366" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49945354" weight="0.32937366" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49945354" visible="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39956802" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -402,20 +362,48 @@
           <line>137</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/wkpgs/Anaconda3/envs/pt/lib/python3.6/site-packages/torchvision/datasets/mnist.py</url>
+          <line>93</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="dataset" language="Python" />
-        <watch expression="images" language="Python" />
-        <watch expression="images[0]" language="Python" />
-        <watch expression="images[0].reshape(28,28)" language="Python" />
-        <watch expression="epoch_losses" language="Python" />
+        <watch expression="data_loader" language="Python" />
+        <watch expression="mnist.data.shape" language="Python" />
+        <watch expression="img" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>img</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>mnist.data.shape</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>mnist</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>data_loader</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>data_loader['data']</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>epoch_losses</expression-string>
         <language-id>Python</language-id>
@@ -436,8 +424,46 @@
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
+    </expressions>
+    <expressions id="setValue">
       <expression>
-        <expression-string>dataset</expression-string>
+        <expression-string>tensor([[[0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         ...,
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0]],
+
+        [[0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         ...,
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0]],
+
+        [[0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         ...,
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0]],
+
+        ...,
+
+        [[0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         ...,
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0]],
+
+        [[0, 0, 0,  ..., 0, 0, 0],
+         [0, 0, 0,  ..., 0, 0, 0],
+    ...</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -453,20 +479,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/wkpgs/Anaconda3/envs/pt/lib/python3.6/site-packages/torch/autograd/grad_mode.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/wkpgs/Anaconda3/envs/pt/lib/python3.6/site-packages/torchvision/datasets/mnist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/wkpgs/Anaconda3/envs/pt/lib/python3.6/site-packages/torch/autograd/grad_mode.py" />
     <entry file="file://$USER_HOME$/wkpgs/Anaconda3/envs/pt/lib/python3.6/site-packages/torchvision/models/resnet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1584">
@@ -510,13 +523,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tutorials/04-utils/tensorboardX/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorials/04-utils/tensorboardX/main.py" />
     <entry file="file://$PROJECT_DIR$/tutorials/02-intermediate/convolutional_neural_network/dataloader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1452">
@@ -525,9 +532,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tutorials/02-intermediate/convolutional_neural_network/convnet.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/tutorials/02-intermediate/convolutional_neural_network/mnist.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -538,13 +542,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tutorials/04-utils/tensorboard/main.py">
+    <entry file="file://$PROJECT_DIR$/tutorials/02-intermediate/deep_residual_network/main.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorials/02-intermediate/convolutional_neural_network/convnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3699">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="176">
+          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -552,6 +556,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="503">
           <caret line="78" column="66" selection-start-line="78" selection-start-column="66" selection-end-line="78" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorials/04-utils/tensorboardX/demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="830">
+          <caret line="137" column="14" selection-start-line="137" selection-start-column="14" selection-end-line="137" selection-end-column="14" />
+          <folding>
+            <element signature="e#11#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorials/04-utils/tensorboard/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
@@ -570,24 +594,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tutorials/02-intermediate/deep_residual_network/main.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tutorials/04-utils/tensorboardX/demo.py">
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1955">
-          <caret line="137" column="14" selection-start-line="137" selection-start-column="14" selection-end-line="137" selection-end-column="14" />
+        <state relative-caret-position="229">
+          <caret line="1734" selection-start-line="1734" selection-end-line="1734" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/wkpgs/Anaconda3/envs/pt/lib/python3.6/site-packages/torchvision/transforms/transforms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/wkpgs/Anaconda3/envs/pt/lib/python3.6/site-packages/torchvision/transforms/functional.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="207" selection-start-line="207" selection-end-line="207" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/torch/utils/data/dataloader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="559" selection-start-line="559" selection-end-line="559" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/wkpgs/Anaconda3/envs/pt/lib/python3.6/site-packages/torchvision/datasets/mnist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
           <folding>
-            <element signature="e#11#23#0" expanded="true" />
+            <element signature="e#277#1102#1" />
+            <element signature="e#1114#1403#0" />
+            <element signature="e#1478#1613#0" />
+            <element signature="e#1665#1747#0" />
+            <element signature="e#1798#1879#0" />
+            <element signature="e#1929#2003#0" />
+            <element signature="e#2052#2125#0" />
+            <element signature="e#2232#2835#0" />
+            <element signature="e#2505#2622#0" />
+            <element signature="e#2879#3035#1" />
+            <element signature="e#3110#3171#0" />
+            <element signature="e#3493#3514#0" />
+            <element signature="e#3564#3626#0" />
+            <element signature="e#3682#3750#0" />
+            <element signature="e#3802#3861#0" />
+            <element signature="e#3900#4156#0" />
+            <element signature="e#4240#4496#0" />
+            <element signature="e#4530#5827#0" />
+            <element signature="e#4821#5072#0" />
+            <element signature="e#5185#5345#0" />
+            <element signature="e#5389#5547#0" />
+            <element signature="e#5863#5931#0" />
+            <element signature="e#5965#7370#0" />
+            <element signature="e#5965#6829#1" />
+            <element signature="e#6841#7234#0" />
+            <element signature="e#7249#7370#0" />
+            <element signature="e#7398#8661#0" />
+            <element signature="e#7398#8237#1" />
+            <element signature="e#8249#8586#0" />
+            <element signature="e#8689#12510#0" />
+            <element signature="e#8689#9760#1" />
+            <element signature="e#10076#10432#0" />
+            <element signature="e#10117#10248#0" />
+            <element signature="e#10491#10528#0" />
+            <element signature="e#10583#10616#0" />
+            <element signature="e#10650#12510#0" />
+            <element signature="e#11422#11533#0" />
+            <element signature="e#11623#12451#0" />
+            <element signature="e#11697#11901#0" />
+            <element signature="e#11957#12159#0" />
+            <element signature="e#12533#12572#0" />
+            <element signature="e#12606#12857#0" />
+            <element signature="e#12642#12857#0" />
+            <element signature="e#12891#13235#0" />
+            <element signature="e#12927#13235#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tutorials/03-advanced/generative_adversarial_network/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="32" column="66" selection-start-line="32" selection-start-column="66" selection-end-line="32" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tutorials/02-intermediate/convolutional_neural_network/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        <state relative-caret-position="374">
+          <caret line="26" column="74" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="74" />
           <folding>
+            <element signature="e#0#12#0" expanded="true" />
             <element signature="e#1440#1979#0" />
             <element signature="e#1681#1888#0" />
             <element signature="e#2037#2723#0" />

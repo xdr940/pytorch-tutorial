@@ -28,9 +28,9 @@ transform = transforms.Compose([
                                      std=(0.5, 0.5, 0.5))])
 
 # MNIST dataset
-mnist = torchvision.datasets.MNIST(root='../../data/',
+mnist = torchvision.datasets.MNIST(root='/home/roit/datasets/mnist/',
                                    train=True,
-                                   transform=transform,
+                                   transform=transforms.ToTensor(),
                                    download=True)
 
 # Data loader
@@ -77,11 +77,11 @@ def reset_grad():
 total_step = len(data_loader)
 for epoch in range(num_epochs):
     for i, (images, _) in enumerate(data_loader):
-        images = images.reshape(batch_size, -1).to(device)
+        images = images.reshape(batch_size, -1).to(device)#[b,h*w]
         
         # Create the labels which are later used as input for the BCE loss
-        real_labels = torch.ones(batch_size, 1).to(device)
-        fake_labels = torch.zeros(batch_size, 1).to(device)
+        real_labels = torch.ones(batch_size, 1).to(device)#[b,1]
+        fake_labels = torch.zeros(batch_size, 1).to(device)#
 
         # ================================================================== #
         #                      Train the discriminator                       #
@@ -105,7 +105,7 @@ for epoch in range(num_epochs):
         d_loss = d_loss_real + d_loss_fake
         reset_grad()
         d_loss.backward()
-        d_optimizer.step()
+        d_optimizer.step()#优化d参数
         
         # ================================================================== #
         #                        Train the generator                         #
