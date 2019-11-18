@@ -70,7 +70,7 @@ def main():
     global  best_acc,is_best
     if os.path.exists(model_dict_saved_path) == True:
         model_dict = torch.load(model_dict_saved_path)
-    else:#从头训练
+    else:
         print('train from imgnt pretrained resnet18 model ')
         pretrianed_dict = torch.load(pretrained_dict_path)
         model_dict = model.state_dict()
