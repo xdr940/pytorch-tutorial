@@ -21,6 +21,7 @@ learning_rate = 0.001
 print_freq=50
 n_iter=0
 model_args_saved_path='arg_model2.pth'
+optimizer_args_saved_path="adam.pth"
 # MNIST dataset
 train_dataset = MNIST(root='/home/roit/datasets/mnist/',#要有raw and processed data
                                            train=True,
@@ -56,6 +57,7 @@ def main():
 
     # Save the model checkpoint
     torch.save(model.state_dict(), model_args_saved_path)
+    torch.save(optimizer.state_dict(),)
 
 
 def train(model,train_loader,optimizer,criterion):
